@@ -6,4 +6,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableFeignClients(basePackages = "com.zerobase.cms.user")
 public class GlobalFeignConfiguration {
+
 }
