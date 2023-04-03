@@ -41,6 +41,9 @@ public class Customer extends BaseEntity {
     private String verificationCode;        // 이메일 인증 코드
     private boolean verify;                 // 이메일 유효성 여부
 
+    @Column(columnDefinition = "int default 0") // 초기값을 0으로 초기화
+    private Integer balance;    // 고객 잔액
+
     public static Customer from(SignUpForm form) {
         return Customer.builder()
             .email(form.getEmail().toLowerCase(Locale.ROOT))    // 이메일 암호화도 고려해보자

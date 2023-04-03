@@ -16,6 +16,9 @@ public enum ErrorCode {
 
     // signin
     LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST, "아이디나 패스워드를 확인해 주세요."),
+
+    //
+    NOT_ENOUGH_BALANCE(HttpStatus.BAD_REQUEST, "잔액이 부족합니다."),
     // mailgun feign 관련 에러
     WRONG_EMAIL(HttpStatus.BAD_REQUEST, "잘못된 이메일 형식입니다.");
 
