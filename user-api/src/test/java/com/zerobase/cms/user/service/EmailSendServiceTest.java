@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.zerobase.cms.user.dto.SendMailForm;
 import com.zerobase.cms.user.exception.CustomException;
 import com.zerobase.cms.user.exception.ErrorCode;
 import org.junit.jupiter.api.DisplayName;
@@ -24,8 +25,13 @@ class EmailSendServiceTest {
     public void sendEmailSuccess() {
 
         String to = "impath96@gmail.com";
-
-        String response = emailSendService.sendEmail(to);
+        SendMailForm sendMailForm = SendMailForm.builder()
+            .from("test-account@naver.com")
+            .to(to)
+            .subject("Verification Email")
+            .text("test")
+            .build();
+        String response = emailSendService.sendEmail(sendMailForm);
 
         assertNotNull(response);
         System.out.println(response);
@@ -38,9 +44,15 @@ class EmailSendServiceTest {
     public void sendEmailFail_WRONG_EMAIL() {
 
         String to = "impath96gmail.com";
+        SendMailForm sendMailForm = SendMailForm.builder()
+            .from("test-account@naver.com")
+            .to(to)
+            .subject("Verification Email")
+            .text("test")
+            .build();
 
         CustomException customException = assertThrows(CustomException.class,
-            () -> emailSendService.sendEmail(to));
+            () -> emailSendService.sendEmail(sendMailForm));
 
         assertEquals(ErrorCode.WRONG_EMAIL, customException.getErrorCode());
 

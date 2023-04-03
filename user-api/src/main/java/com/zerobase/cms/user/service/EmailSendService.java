@@ -4,7 +4,5 @@ import com.zerobase.cms.user.dto.SendMailForm;
 
 public interface EmailSendService {
 
-    String sendEmail(String to);
-
     String sendEmail(SendMailForm form);
 }
