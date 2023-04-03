@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-// 외부 API 테스트를 대체 어떻게 해야할까???
 @SpringBootTest
 class EmailSendServiceTest {
 
