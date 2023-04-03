@@ -1,7 +1,7 @@
 package com.zerobase.cms.user.controller;
 
-import com.zerobase.cms.user.domain.customer.CustomerDto;
-import com.zerobase.cms.user.service.CustomerService;
+import com.zerobase.cms.user.dto.CustomerDto;
+import com.zerobase.cms.user.service.customer.CustomerService;
 import com.zerobase.domain.common.UserVo;
 import com.zerobase.domain.configuration.JwtAuthenticationProvider;
 import lombok.RequiredArgsConstructor;

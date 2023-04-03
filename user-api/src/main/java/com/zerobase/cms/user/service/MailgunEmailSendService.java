@@ -2,7 +2,7 @@ package com.zerobase.cms.user.service;
 
 import com.zerobase.cms.user.client.FeignResponseUtils;
 import com.zerobase.cms.user.client.MailgunClient;
-import com.zerobase.cms.user.client.mailgun.SendMailForm;
+import com.zerobase.cms.user.dto.SendMailForm;
 import com.zerobase.cms.user.exception.CustomException;
 import com.zerobase.cms.user.exception.ErrorCode;
 import feign.Response;

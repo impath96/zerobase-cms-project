@@ -1,4 +1,4 @@
-package com.zerobase.cms.user.client.mailgun;
+package com.zerobase.cms.user.dto;
 
 import lombok.*;
 

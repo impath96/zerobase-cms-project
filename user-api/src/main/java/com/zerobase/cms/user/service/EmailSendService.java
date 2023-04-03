@@ -1,6 +1,6 @@
 package com.zerobase.cms.user.service;
 
-import com.zerobase.cms.user.client.mailgun.SendMailForm;
+import com.zerobase.cms.user.dto.SendMailForm;
 
 public interface EmailSendService {
 

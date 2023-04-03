@@ -1,6 +1,6 @@
 package com.zerobase.cms.user.client;
 
-import com.zerobase.cms.user.client.mailgun.SendMailForm;
+import com.zerobase.cms.user.dto.SendMailForm;
 import com.zerobase.cms.user.configuration.FeignConfiguration;
 import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
