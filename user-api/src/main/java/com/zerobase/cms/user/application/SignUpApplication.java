@@ -39,7 +39,7 @@ public class SignUpApplication {
 
         // 이메일 인증 코드 생성
         String code = generateRandomCode();
-
+        System.out.println("code : " + code);
         // 여기서 이메일 Form을 만드는거 맞는건가?
         SendMailForm sendMailForm = SendMailForm.builder()
             .from("test-account@" + domain)

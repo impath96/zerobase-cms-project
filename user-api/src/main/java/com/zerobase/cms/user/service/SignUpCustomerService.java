@@ -32,6 +32,7 @@ public class SignUpCustomerService {
 
     }
 
+    @Transactional
     public void changeCustomerValidateEmail(Long customerId, String verificationCode) {
 
         Customer customer = customerRepository.findById(customerId)
