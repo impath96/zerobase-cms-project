@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-// 나중에 필드 Mocking 으로 테스트를 진행해보자
 @Getter
 @Builder
 @NoArgsConstructor

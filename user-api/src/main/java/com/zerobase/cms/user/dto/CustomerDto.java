@@ -1,4 +1,4 @@
-package com.zerobase.cms.user.domain.customer;
+package com.zerobase.cms.user.dto;
 
 import com.zerobase.cms.user.domain.model.Customer;
 import lombok.AllArgsConstructor;
