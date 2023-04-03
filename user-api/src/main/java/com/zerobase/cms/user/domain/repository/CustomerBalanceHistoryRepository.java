@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Repository
-public interface CustomerBalanceHistoryRepository extends JpaRepository<CustomerBalanceHistory, Long> {
-    Optional<CustomerBalanceHistory> findFirstByCustomer_IdOrderByIdDesc(@RequestParam("customer_id") Long customerId);
+public interface CustomerBalanceHistoryRepository extends
+    JpaRepository<CustomerBalanceHistory, Long> {
+
+    Optional<CustomerBalanceHistory> findFirstByCustomer_IdOrderByIdDesc(
+        @RequestParam("customer_id") Long customerId);
 }
