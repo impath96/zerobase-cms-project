@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @PropertySource("classpath:/mailgun.properties")
-public class MailgunEmailSendService implements EmailSendService{
+public class MailgunEmailSendService implements EmailSendService {
 
     private final MailgunClient mailgunClient;
 
@@ -24,17 +24,33 @@ public class MailgunEmailSendService implements EmailSendService{
     public String sendEmail(String to) {
         // 나중에 이메일 전송을 위한 템플릿을 따로 구현
         SendMailForm form = SendMailForm.builder()
-                .from("aksghcjswo@naver.com")
-                .to(to)
-                .subject("test email from zerobase!!!@@@$!$@$@#")
-                .text("text!!")
-                .build();
+            .from("aksghcjswo@naver.com")
+            .to(to)
+            .subject("test email from zerobase!!!@@@$!$@$@#")
+            .text("text!!")
+            .build();
         Response response = mailgunClient.sendEmail(form);
 
-        if(response.status() != HttpStatus.OK.value()) {
+        if (!isOk(response)) {
             throw new CustomException(ErrorCode.WRONG_EMAIL);
         }
 
         return FeignResponseUtils.getResponseBody(response);
+    }
+
+    @Override
+    public String sendEmail(SendMailForm form) {
+
+        Response response = mailgunClient.sendEmail(form);
+
+        if (!isOk(response)) {
+            throw new CustomException(ErrorCode.WRONG_EMAIL);
+        }
+
+        return FeignResponseUtils.getResponseBody(response);
+    }
+
+    private boolean isOk(Response response) {
+        return response.status() == HttpStatus.OK.value();
     }
 }

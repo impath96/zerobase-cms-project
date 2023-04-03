@@ -1,16 +1,16 @@
 package com.zerobase.cms.user.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import com.zerobase.cms.user.dto.SignUpForm;
 import com.zerobase.cms.user.domain.model.Customer;
+import com.zerobase.cms.user.dto.SignUpForm;
+import java.time.LocalDate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.time.LocalDate;
 
 @SpringBootTest
 class SignUpCustomerServiceTest {
@@ -39,5 +39,18 @@ class SignUpCustomerServiceTest {
         assertNotNull(customer.getCreatedAt());
         assertEquals(customer.getName(), form.getName());
     }
+
+    @Test
+    @DisplayName("이미 존재하는 이메일 인지 확인 - 존재하지 않을 경우")
+    void isEmailExist() {
+
+        String email = "test@naver.com";
+
+        boolean exist = signUpCustomerService.isEmailExist(email);
+
+        assertFalse(exist);
+
+    }
+
 
 }

@@ -1,21 +1,21 @@
 package com.zerobase.cms.user.client;
 
+import static java.lang.String.format;
+
 import feign.Response;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-
-import static java.lang.String.format;
-
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class FeignResponseUtils {
+
     public static String getRequestBody(Response response) {
 
         if (response.request().body() == null) {
@@ -25,7 +25,8 @@ public class FeignResponseUtils {
         try {
             return new String(response.request().body(), StandardCharsets.UTF_8.name());
         } catch (UnsupportedEncodingException e) {
-            log.error(format("feign request body converting error - io.github.mayaul.response: %s", response), e);
+            log.error(format("feign request body converting error - io.github.mayaul.response: %s",
+                response), e);
             return "";
         }
     }
@@ -39,7 +40,9 @@ public class FeignResponseUtils {
             return IOUtils.toString(responseBodyStream, StandardCharsets.UTF_8.name());
 
         } catch (IOException e) {
-            log.error(format("feign io.github.mayaul.response body converting error - io.github.mayaul.response: %s", response), e);
+            log.error(format(
+                "feign io.github.mayaul.response body converting error - io.github.mayaul.response: %s",
+                response), e);
             return "";
         }
     }

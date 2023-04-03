@@ -1,13 +1,15 @@
 package com.zerobase.cms.user.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.zerobase.cms.user.exception.CustomException;
 import com.zerobase.cms.user.exception.ErrorCode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class EmailSendServiceTest {
@@ -37,7 +39,8 @@ class EmailSendServiceTest {
 
         String to = "impath96gmail.com";
 
-        CustomException customException = assertThrows(CustomException.class, () -> emailSendService.sendEmail(to));
+        CustomException customException = assertThrows(CustomException.class,
+            () -> emailSendService.sendEmail(to));
 
         assertEquals(ErrorCode.WRONG_EMAIL, customException.getErrorCode());
 
