@@ -68,7 +68,7 @@ class CustomerServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("이메일과 비밀번호 일치한 회원 찾기 - 성공")
     void findValidCustomer_성공() {
         // given
         Customer customer = Customer.builder()
@@ -95,7 +95,7 @@ class CustomerServiceTest {
 
     // 이렇게 하면 내부 구현을 무조건 알아야 하는건가?
     @Test
-    @DisplayName("")
+    @DisplayName("회원 찾기 실패")
     void findValidCustomer_잘못된_회원정보() {
 
         // repository에서 이메일과 비밀번호 조건으로 찾아오기 때문에 empty()로 가정
@@ -111,7 +111,7 @@ class CustomerServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("회원은 찾았지만 verify가 false - 이메일 인증 에러")
     void findValidCustomer_회원_VERIFY_FALSE() {
 
         Customer customer = Customer.builder()
