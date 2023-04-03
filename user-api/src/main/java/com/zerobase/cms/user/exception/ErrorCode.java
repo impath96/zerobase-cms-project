@@ -14,6 +14,8 @@ public enum ErrorCode {
     EXPIRED_CODE(HttpStatus.BAD_REQUEST, "인증 시간이 만료되었습니다."),
     ALREADY_VERIFIED(HttpStatus.BAD_REQUEST, "이미 인증이 완료되었습니다."),
 
+    // signin
+    LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST, "아이디나 패스워드를 확인해 주세요."),
     // mailgun feign 관련 에러
     WRONG_EMAIL(HttpStatus.BAD_REQUEST, "잘못된 이메일 형식입니다.");
 

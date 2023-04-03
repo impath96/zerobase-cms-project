@@ -7,6 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
     boolean existsByEmail(String email);
+    boolean existsByIdAndEmail(Long id, String email);
 
     Optional<Customer> findByEmail(String email);
+
+
+
 }
